@@ -1,55 +1,19 @@
+from coin import Coin
+from cliente import Cliente
+import sys
+
 from PySide2.QtWidgets import (
     QApplication,
     QMainWindow,
     QMdiArea,
     QMdiSubWindow,
-    QTextEdit,
     QAction,
     QDesktopWidget,
     QWidget,
     QDialog,
-    QPushButton,
 )
-from PySide2 import QtCore
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtCore import QFile, QSize
-import sys
 from PySide2.QtGui import QIcon
-
-
-def load_ui_widget(filename, parent):
-    loader = QUiLoader()
-    uifile = QFile(filename)
-    uifile.open(QFile.ReadOnly)
-    loader.load(uifile, parent)
-    uifile.close()
-
-
-class Coin(QWidget):
-    def __init__(self, filepath):
-
-        super(Coin, self).__init__()
-        load_ui_widget(filepath, self)
-        self.setWindowTitle("Coin")
-        self.setMinimumSize(QSize(615, 327))
-        self.setMaximumSize(QSize(615, 327))
-        self.btn = self.findChild(QPushButton, "pushButton_8")
-        self.btn.clicked.connect(self.teste)
-
-    # def cloesEvent(self, event):
-    #    pass
-
-    def teste(self):
-        print("teste")
-
-
-class Cliente(QWidget):
-    def __init__(self, filepath):
-        super(Cliente, self).__init__()
-        load_ui_widget(filepath, self)
-        self.setWindowTitle("Cliente")
-        self.setMinimumSize(QSize(615, 327))
-        self.setMaximumSize(QSize(615, 327))
+from PySide2 import QtCore
 
 
 # our main window class
